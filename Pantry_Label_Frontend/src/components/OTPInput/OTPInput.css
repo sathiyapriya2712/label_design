@@ -1,0 +1,39 @@
+.otp-inputs-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.otp-digit-box {
+  width: 3.25rem;
+  height: 3.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.otp-digit-box:focus {
+  background: #ffffff;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .otp-inputs-wrapper {
+    gap: 0.5rem;
+  }
+
+  .otp-digit-box {
+    width: 2.75rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+}

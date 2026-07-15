@@ -1,0 +1,323 @@
+.tracking-page-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.tracking-content-area {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.tracking-header-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tracking-header-block h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 0.5rem 0;
+}
+
+.tracking-main-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+}
+
+.order-basic-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.info-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+}
+
+.info-val {
+  font-size: 0.95rem;
+  color: #1f2937;
+}
+
+.status-badge-tracking {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.status-badge-tracking.pending_payment {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-badge-tracking.paid,
+.status-badge-tracking.placed,
+.status-badge-tracking.confirmed {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.status-badge-tracking.printing,
+.status-badge-tracking.processing {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.status-badge-tracking.shipped,
+.status-badge-tracking.dispatched {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.status-badge-tracking.delivered {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.tracking-hr {
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+  margin: 1.5rem 0;
+}
+
+/* Timeline vertical layout */
+.tracking-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.tracking-timeline::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 27px;
+  bottom: 12px;
+  width: 2px;
+  background: #e5e7eb;
+  z-index: 1;
+}
+
+.timeline-step-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-badge-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+}
+
+.timeline-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.timeline-step-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin: 0;
+}
+
+.timeline-step-desc {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Timeline step states */
+.timeline-step-item.completed .timeline-badge-circle {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.timeline-step-item.completed .timeline-step-label {
+  color: #047857;
+}
+
+.timeline-step-item.completed .timeline-step-desc {
+  color: #4b5563;
+}
+
+.timeline-step-item.active .timeline-badge-circle {
+  border-color: #10b981;
+  color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15);
+  font-weight: 800;
+}
+
+.timeline-step-item.active .timeline-step-label {
+  color: #111827;
+  font-weight: 700;
+}
+
+.timeline-step-item.active .timeline-step-desc {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+/* Pending Warning Box */
+.pending-payment-warning-box {
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pending-payment-warning-box h4 {
+  font-size: 1rem;
+  color: #b45309;
+  margin: 0;
+}
+
+.pending-payment-warning-box p {
+  font-size: 0.85rem;
+  color: #78350f;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.complete-payment-direct-btn {
+  text-decoration: none;
+  background: #d97706;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.25);
+  transition: all 0.2s;
+}
+
+.complete-payment-direct-btn:hover {
+  background: #b45309;
+}
+
+/* Error details */
+.tracking-error-container {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.tracking-error-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  max-width: 400px;
+}
+
+.tracking-error-card h3 {
+  font-size: 1.1rem;
+  color: #ef4444;
+  margin: 0 0 0.5rem 0;
+}
+
+.tracking-error-card p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.tracking-back-btn {
+  text-decoration: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+}
+
+/* Footer layout */
+.tracking-footer-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.tracking-footer-btn-primary {
+  text-decoration: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.tracking-footer-btn-sec {
+  text-decoration: none;
+  background: #ffffff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.tracking-footer-btn-sec:hover {
+  background: #f9fafb;
+}
+
+@media (max-width: 480px) {
+  .order-basic-info-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .tracking-footer-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tracking-footer-btn-primary,
+  .tracking-footer-btn-sec {
+    text-align: center;
+  }
+}

@@ -1,0 +1,93 @@
+.progress-steps-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 600px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 0 1rem;
+}
+
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.step-circle {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #d1d5db;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6b7280;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Active State */
+.step-item.active .step-circle {
+  border-color: #10b981;
+  color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.step-item.active .step-label {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* Completed State */
+.step-item.completed .step-circle {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.step-check {
+  font-size: 1rem;
+}
+
+.step-item.completed .step-label {
+  color: #10b981;
+  font-weight: 500;
+}
+
+/* Connector Line */
+.step-connector {
+  flex: 1;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 1rem;
+  transform: translateY(-0.85rem);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.step-connector.completed {
+  background: #10b981;
+}
+
+@media (max-width: 480px) {
+  .step-label {
+    font-size: 0.7rem;
+  }
+  .step-connector {
+    margin: 0 0.5rem;
+  }
+}

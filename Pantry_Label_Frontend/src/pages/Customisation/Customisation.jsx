@@ -1,0 +1,106 @@
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Loader from '../../components/Loader/Loader';
+import FeaturesTab from './FeaturesTab/FeaturesTab';
+import LivePreviewTab from './LivePreviewTab/LivePreviewTab';
+import SummaryTab from './SummaryTab/SummaryTab';
+import { CustomisationContext } from '../../context/CustomisationContext';
+import useAuth from '../../hooks/useAuth';
+import productService from '../../services/productService';
+import './Customisation.css';
+
+export const Customisation = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const { selectedProductIds } = useContext(CustomisationContext);
+  const [selectedProductsList, setSelectedProductsList] = useState([]);
+  
+  const [activeTab, setActiveTab] = useState('features'); // features, preview, summary
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  // Redirect to dashboard if no products are selected
+  useEffect(() => {
+    if (selectedProductIds.length === 0) {
+      navigate('/dashboard');
+    }
+  }, [selectedProductIds, navigate]);
+
+  // Fetch full product details for selected product IDs
+  useEffect(() => {
+    const fetchSelectedProductsDetails = async () => {
+      if (selectedProductIds.length === 0) return;
+      
+      setLoading(true);
+      setError('');
+      try {
+        // Fetch all products for user's home state to extract data
+        const stateId = user?.stateId;
+        if (stateId) {
+          const response = await productService.getProducts(stateId);
+          const allProducts = response.data || [];
+          
+          // Filter products matching our selected IDs
+          const matched = allProducts.filter(p => selectedProductIds.includes(p.id));
+          setSelectedProductsList(matched);
+        }
+      } catch (err) {
+        console.error('Failed to load selected ingredients details:', err);
+        setError('Failed to load ingredient details. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchSelectedProductsDetails();
+  }, [selectedProductIds, user]);
+
+  if (loading) {
+    return <Loader fullPage={true} message="Loading customisation suite..." />;
+  }
+
+  return (
+    <div className="customisation-page-container">
+      <Header />
+
+      <main className="customisation-content-area">
+        <div className="customisation-header-block">
+          <h2>Customize Your Pantry Labels</h2>
+          <p className="subtitle">Design beautiful, bilingual labels tailored to your jars.</p>
+        </div>
+
+        {error && <div className="customisation-error">{error}</div>}
+
+        <div className="tabs-navigation-bar">
+          <button
+            className={`tab-toggle-btn ${activeTab === 'features' ? 'active' : ''}`}
+            onClick={() => setActiveTab('features')}
+          >
+            🎨 Design Layout
+          </button>
+          <button
+            className={`tab-toggle-btn ${activeTab === 'preview' ? 'active' : ''}`}
+            onClick={() => setActiveTab('preview')}
+          >
+            👁️ Live Preview
+          </button>
+          <button
+            className={`tab-toggle-btn ${activeTab === 'summary' ? 'active' : ''}`}
+            onClick={() => setActiveTab('summary')}
+          >
+            📝 Order Summary
+          </button>
+        </div>
+
+        <div className="active-tab-render-window">
+          {activeTab === 'features' && <FeaturesTab />}
+          {activeTab === 'preview' && <LivePreviewTab selectedProducts={selectedProductsList} />}
+          {activeTab === 'summary' && <SummaryTab selectedProducts={selectedProductsList} />}
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Customisation;

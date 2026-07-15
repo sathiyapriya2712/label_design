@@ -1,0 +1,122 @@
+.order-success-page-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.success-content-area {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.success-animation-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.success-checkmark-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: #10b981;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
+  margin-bottom: 0.5rem;
+  animation: check-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-animation-block h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.invoice-display-wrapper {
+  margin: 0.5rem 0;
+}
+
+.success-error-banner {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+/* Action dock */
+.success-action-dock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.track-order-link-btn {
+  text-decoration: none;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  transition: all 0.2s;
+}
+
+.track-order-link-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35);
+}
+
+.back-dashboard-link-btn {
+  text-decoration: none;
+  background: #ffffff;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+
+.back-dashboard-link-btn:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+@keyframes check-pop {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .success-action-dock {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .track-order-link-btn,
+  .back-dashboard-link-btn {
+    text-align: center;
+  }
+}

@@ -1,0 +1,176 @@
+.dashboard-page-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+  padding-bottom: 80px; /* Space for sticky proceed dock */
+}
+
+.dashboard-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.dashboard-filters-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.state-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.state-selector-wrapper label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4b5563;
+}
+
+.state-dropdown {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.state-dropdown:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.selections-counter-box {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dashboard-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+.products-grid-section {
+  margin-top: 1.5rem;
+}
+
+.dashboard-empty-prompt {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px dashed #d1d5db;
+  margin-top: 1rem;
+}
+
+.dashboard-empty-prompt h3 {
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-empty-prompt p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Sticky dock for Proceed Button */
+.dashboard-sticky-dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(229, 231, 235, 0.5);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+  z-index: 90;
+  animation: slideInUp 0.3s ease;
+}
+
+.dock-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.dock-proceed-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+  transition: all 0.2s ease;
+}
+
+.dock-proceed-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-filters-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .state-selector-wrapper {
+    justify-content: space-between;
+  }
+  .selections-counter-box {
+    text-align: center;
+  }
+  .dock-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .dock-proceed-btn {
+    width: 100%;
+  }
+}

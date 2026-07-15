@@ -1,0 +1,116 @@
+.address-card-container {
+  display: flex;
+  gap: 1rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+}
+
+.address-card-container:hover {
+  border-color: #10b981;
+  background: #fafafa;
+}
+
+.address-card-container.selected {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.02);
+  box-shadow: 0 0 0 2px #10b981;
+}
+
+/* Radio circle selection indicator */
+.address-card-selection {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0.25rem;
+}
+
+.address-radio-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.address-card-container.selected .address-radio-circle {
+  border-color: #10b981;
+}
+
+.address-card-container.selected .address-radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: radio-zoom 0.2s ease;
+}
+
+/* Details container */
+.address-card-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.address-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.address-recipient-name {
+  font-size: 1rem;
+  color: #111827;
+}
+
+.default-badge {
+  background: #e6f7ff;
+  color: #0050b3;
+  border: 1px solid #91d5ff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.address-phone-line {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin: 0;
+  font-weight: 500;
+}
+
+.address-text-line {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.landmark-span {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+@keyframes radio-zoom {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
